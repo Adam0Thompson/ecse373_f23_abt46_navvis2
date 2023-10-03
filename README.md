@@ -20,7 +20,7 @@ This launch file sets up the lasers on the robot, and preps to demonstrate the f
 - config_file: allows the user to specify a config file to use. default is config.rviz
 
 ### display_map.launch
-This launch file includes display.launch and passes all necessary arguments into it. This launch file takes no new arguments, and sets up the bag reader, as well as launches the map_server.
+This launch file includes display.launch and passes all necessary arguments into it. This launch file takes no new arguments, and sets up the bag reader, as well as launches the map_server. In the bag reader gui, you will need to open the bag file manually and run it through the gui. Use whatever path your bag follows.
 
 ## Notes from the author
 The one thing that im still unsure of, is that the wheels do not move with the robot when the bag is running on the map. Im sure this is an easy fix, i just havent been able to figure out what it is.
