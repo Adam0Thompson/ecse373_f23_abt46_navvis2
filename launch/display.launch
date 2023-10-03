@@ -1,16 +1,15 @@
 <launch>
     
     <arg name="use_external_time" default="false"/>
-
-    <arg if="$(arg use_external_time)" name="rviz_open" value="$(find navvis2)/config/config.rviz /use_sim_time:=true"/>
-    <arg unless="$(arg use_external_time)" name="rviz_open" value="$(find navvis2)/config/config.rviz"/>
-    
-    <include file="$(find navvis_description)/launch/display.launch">
+    <arg name="config_file" default="$(find navvis2)/config/config.rviz"/>
+    <arg if="$(arg use_external_time)" name="rviz_open" default="/use_sim_time:=true"/>
+    <arg unless= "$(arg use_external_time)" name="rviz_open" default=""/>
+    <include file="$(find navvis2)/launch/display_old.launch">
         <arg name="use_xacro" value="true"/>
         <arg name="use_joint_state_publisher_gui" value="false"/>
         <arg name="use_robot_state_publisher" value="true"/>
         <arg name="file" value="$(find navvis2)/urdf/navvis2.xacro"/>
-        <arg name="rviz_config_file" value="$(arg rviz_open)"/>
+        <arg name="rviz_config_file" value="$(arg config_file) $(arg rviz_open)"/>
     </include>
 
 

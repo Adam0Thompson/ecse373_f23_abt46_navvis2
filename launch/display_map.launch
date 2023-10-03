@@ -1,0 +1,13 @@
+<launch>
+          
+    <include file="$(find navvis2)/launch/display.launch">
+        <arg name="use_external_time" value="true"/>
+        <arg name="config_file" value="$(find navvis2)/config/config_with_map.rviz"/>
+    </include>
+    
+    <node pkg="rqt_bag" type="rqt_bag" args="/tf_trajectory:=/tf --clock" name="bag_run"/>
+    <node pkg="map_server" type="map_server" args="$(find maps_glennan)/maps/glennan5_map.yaml" name="map_run"/>
+
+
+</launch>
+
